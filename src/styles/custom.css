@@ -1,0 +1,53 @@
+:root {
+  --sl-color-accent-low: #f8dfc9;
+  --sl-color-accent: #ba633e;
+  --sl-color-accent-high: #612c1d;
+  --sl-color-text-accent: #a94e32;
+  --sl-color-bg: #fffaf1;
+  --sl-color-bg-nav: #fffaf1;
+  --sl-color-bg-sidebar: #f7f0e7;
+  --sl-color-text: #253542;
+  --sl-color-gray-5: #d9cec0;
+  --sl-font: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: 'DM Mono', ui-monospace, monospace;
+}
+html[data-theme='dark'] {
+  --sl-color-accent-low: #48281f;
+  --sl-color-accent: #ee9a68;
+  --sl-color-accent-high: #ffdcc2;
+  --sl-color-text-accent: #ffb789;
+  --sl-color-bg: #17242d;
+  --sl-color-bg-nav: #17242d;
+  --sl-color-bg-sidebar: #1d2c36;
+  --sl-color-text: #f8f0e5;
+  --sl-color-gray-5: #40545b;
+}
+.hero {
+  background: linear-gradient(120deg, #fffaf1, #dff2ef);
+}
+.sl-mark {
+  font-weight: 800;
+}
+.sl-mark::before {
+  content: 'K';
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.4rem;
+  border-radius: 45% 55% 50% 50%;
+  background: #df7d4f;
+  color: #fffaf1;
+  font-family: monospace;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #15757b;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
