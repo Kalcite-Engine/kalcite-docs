@@ -30,4 +30,4 @@ The design remains scene-first: UI is not a second framework. Controls, assets, 
 
 `Result`, `Option`, `defer`, exhaustive `match`, payload enums, bounded slices and strings, deterministic async state machines, C FFI, a unified build report, and richer LSP support are roadmap items unless the [language reference](../../reference/language/) states otherwise.
 
-For the detailed source-of-truth plan, read [`docs/APPLICATION_UI_VISION.md`](https://github.com/kalcite-lang/kalcite/blob/main/docs/APPLICATION_UI_VISION.md) in the repository.
+For the detailed source-of-truth plan, read [`docs/APPLICATION_UI_VISION.md`](https://github.com/kalcite-lang/kalcite/blob/main/docs/APPLICATION_UI_VISION.md) and its [delivery plan](https://github.com/kalcite-lang/kalcite/blob/main/docs/APPLICATION_UI_DELIVERY_PLAN.md) in the repository.
