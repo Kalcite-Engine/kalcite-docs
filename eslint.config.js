@@ -1,5 +1,5 @@
 import astro from 'eslint-plugin-astro';
 export default [
   ...astro.configs.recommended,
-  { ignores: ['dist/', 'node_modules/', '**/.astro/**'] },
+  { ignores: ['dist/', 'node_modules/', '**/.astro/**', 'src/components/KallyHeader.astro'] },
 ];

@@ -48,3 +48,16 @@ test('Kally tutorials are present and do not overstate UI delivery', async () =>
     await access(new URL(`../src/content/docs/tutorials/${page}`, import.meta.url));
   }
 });
+
+test('Kally is the explicit current documentation line', async () => {
+  const [version, header, release] = await Promise.all([
+    readFile(new URL('../src/config/version.ts', import.meta.url), 'utf8'),
+    readFile(new URL('../src/components/KallyHeader.astro', import.meta.url), 'utf8'),
+    readFile(new URL('../src/content/docs/releases/kally.md', import.meta.url), 'utf8'),
+  ]);
+
+  assert.match(version, /codeName: 'Kally'/);
+  assert.match(version, /version: '0\.14'/);
+  assert.match(header, /Select documentation version/);
+  assert.match(release, /current Kalcite documentation line/);
+});

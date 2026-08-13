@@ -1,0 +1,135 @@
+---
+import config from 'virtual:starlight/user-config';
+import type { Props } from '@astrojs/starlight/props';
+
+import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
+import Search from '@astrojs/starlight/components/Search.astro';
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+import { currentDocumentationVersion, documentationVersions } from '../config/version';
+
+const shouldRenderSearch =
+  config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+const props = Astro.props as Props;
+---
+
+<div class="header sl-flex">
+  <div class="title-wrapper sl-flex">
+    <SiteTitle {...props} />
+  </div>
+  <div class="sl-flex">
+    {shouldRenderSearch && <Search {...props} />}
+  </div>
+  <div class="sl-hidden md:sl-flex right-group">
+    <details class="version-picker">
+      <summary aria-label="Select documentation version">
+        <span>{currentDocumentationVersion.label}</span>
+      </summary>
+      <ul aria-label="Documentation versions">
+        {
+          documentationVersions.map((version) => (
+            <li>
+              {version.current ? (
+                <span aria-current="page">
+                  {version.label} — {version.status}
+                </span>
+              ) : (
+                <a href={version.href}>
+                  {version.label} — {version.status}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </details>
+    <div class="sl-flex social-icons">
+      <SocialIcons {...props} />
+    </div>
+    <ThemeSelect {...props} />
+    <LanguageSelect {...props} />
+  </div>
+</div>
+
+<style>
+  .header {
+    gap: var(--sl-nav-gap);
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .title-wrapper {
+    overflow: clip;
+    padding: 0.25rem;
+    margin: -0.25rem;
+    min-width: 0;
+  }
+  .right-group,
+  .social-icons {
+    gap: 1rem;
+    align-items: center;
+  }
+  .social-icons::after {
+    content: '';
+    height: 2rem;
+    border-inline-end: 1px solid var(--sl-color-gray-5);
+  }
+  .version-picker {
+    position: relative;
+    font-size: var(--sl-text-xs);
+  }
+  .version-picker summary {
+    cursor: pointer;
+    color: var(--sl-color-text);
+    white-space: nowrap;
+  }
+  .version-picker ul {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    min-width: 14rem;
+    margin: 0.5rem 0 0;
+    padding: 0.5rem;
+    list-style: none;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.4rem;
+    background: var(--sl-color-bg-nav);
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 15%);
+  }
+  .version-picker li {
+    padding: 0.35rem 0.5rem;
+    white-space: nowrap;
+  }
+  .version-picker [aria-current='page'] {
+    color: var(--sl-color-text-accent);
+    font-weight: 700;
+  }
+  @media (min-width: 50rem) {
+    :global(:root[data-has-sidebar]) {
+      --__sidebar-pad: calc(2 * var(--sl-nav-pad-x));
+    }
+    :global(:root:not([data-has-toc])) {
+      --__toc-width: 0rem;
+    }
+    .header {
+      --__sidebar-width: max(0rem, var(--sl-content-inline-start, 0rem) - var(--sl-nav-pad-x));
+      --__main-column-fr: calc(
+        (
+            100% + var(--__sidebar-pad, 0rem) - var(--__toc-width, var(--sl-sidebar-width)) -
+              (2 * var(--__toc-width, var(--sl-nav-pad-x))) - var(--sl-content-inline-start, 0rem) -
+              var(--sl-content-width)
+          ) /
+          2
+      );
+      display: grid;
+      grid-template-columns:
+        minmax(
+          calc(var(--__sidebar-width) + max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))),
+          auto
+        )
+        1fr auto;
+      align-content: center;
+    }
+  }
+</style>
