@@ -16,7 +16,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 
 Project profiles (`cli`, `ui`, `game2d`, `embedded`, and `wasm`) and explicit target capability validation are being introduced. Their job is to make a platform contract visible before compilation: a project must not silently depend on a missing service.
 
-The `ui` profile establishes `window` and `keyboard` as its baseline. Other services remain opt-in manifest requirements, so a feature such as a native file dialog cannot become an accidental dependency. The work-in-progress CLI reports the effective capability contract in project checks and builds.
+The `ui` profile establishes `window` and `keyboard` as its baseline. Other services remain opt-in manifest requirements, so a feature such as a native file dialog cannot become an accidental dependency. The work-in-progress CLI reports the effective capability contract in project checks and builds, including scene, asset, and declared-pool measurements through `--report`.
 
 The current desktop runner only claims `window` and `keyboard`; constrained targets claim `keyboard`. Rich desktop services such as pointer input, clipboard, native dialogs, GPU rendering, and accessibility are not yet available capabilities.
 
@@ -25,6 +25,12 @@ The current desktop runner only claims `window` and `keyboard`; constrained targ
 The scene system will grow adaptive layout, text assets and metrics, pointer/touch input, node invalidation, accessibility metadata, typed bindings, themes, bounded virtual lists, and optional native platform adapters. These are planned rather than stable public APIs.
 
 The design remains scene-first: UI is not a second framework. Controls, assets, rendering, input, diagnostics, and build budgets are shared with the engine.
+
+## Resizable Settings sample (work in progress)
+
+`kalcite ui-settings` generates a standalone native desktop Settings sample. It uses a resizable window separate from the 320×240 game framebuffer and demonstrates pointer activation, Tab/Enter focus navigation, a dark-mode toggle, and a bounded 24-character text field.
+
+It is an executable vertical slice, not yet the public scene-to-UI compiler path. Adaptive scene layout, font shaping, full text editing, clipboard support, and accessibility remain planned.
 
 ## Planned language and tooling work
 
