@@ -9,6 +9,8 @@ title: Architecture overview
                                               └─ TI route
 ```
 
-Platform backends do not parse `.klc` themselves. The shared logical platform surface includes drawing, input and colors; NumWorks is the reference 320×240 RGB565 target.
+Platform backends do not parse `.klc` themselves. The shared logical platform surface includes drawing, input and colors; NumWorks is the reference 320×240 RGB565 constrained target. The desktop runner currently mirrors that game surface; a separate resizable, DPI-aware application surface is planned.
 
 The repository contains crates for syntax, objects, linting, projects, compiler lowering, portable engine/runtime pieces, platform APIs and tooling. Consult [Engine architecture](../contributors/engine-architecture/) for a contributor-oriented map.
+
+See the [Applications and UI roadmap](./roadmap/applications-and-ui/) for profile and capability-contract work.
