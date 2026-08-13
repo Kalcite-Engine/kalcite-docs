@@ -16,7 +16,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 
 Project profiles (`cli`, `ui`, `game2d`, `embedded`, and `wasm`) and explicit target capability validation are being introduced. Their job is to make a platform contract visible before compilation: a project must not silently depend on a missing service.
 
-The `ui` profile establishes `window` and `keyboard` as its baseline. Other services remain opt-in manifest requirements, so a feature such as a native file dialog cannot become an accidental dependency.
+The `ui` profile establishes `window` and `keyboard` as its baseline. Other services remain opt-in manifest requirements, so a feature such as a native file dialog cannot become an accidental dependency. The work-in-progress CLI reports the effective capability contract in project checks and builds.
 
 The current desktop runner only claims `window` and `keyboard`; constrained targets claim `keyboard`. Rich desktop services such as pointer input, clipboard, native dialogs, GPU rendering, and accessibility are not yet available capabilities.
 
