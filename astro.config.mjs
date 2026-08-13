@@ -2,14 +2,14 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 const base = process.env.SITE_BASE ?? '/kalcite-docs';
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://kalcite-lang.github.io',
+  site: process.env.SITE_URL ?? 'https://kalcite-engine.github.io',
   base,
   integrations: [
     starlight({
       title: 'Kalcite Kally documentation',
       customCss: ['./src/styles/custom.css'],
       components: { Header: './src/components/KallyHeader.astro' },
-      social: { github: 'https://github.com/kalcite-lang' },
+      social: { github: 'https://github.com/Kalcite-Engine' },
       sidebar: [
         {
           label: 'Introduction',

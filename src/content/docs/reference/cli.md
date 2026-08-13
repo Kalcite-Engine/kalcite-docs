@@ -36,6 +36,8 @@ kalcite project-build my-game --target desktop --report
 
 Use `check` for syntax/semantic diagnostics, `lint` for guidance, `emit-mir` and `emit-rust` to inspect compiler stages, and `build` to write a `.kco` compiled object. `run` invokes the desktop development runner; its current game path retains the 320×240 RGB565 logical surface. `--screenshot FILE.ppm` captures that runner output.
 
+The [language lint reference](./lint/) lists all Kally diagnostic codes, their severity, and the command exit behaviour.
+
 `build-app` produces a target application route for `numworks`, `desktop`, or `ti`. `build-nwa` is the NumWorks package shortcut; `build-ti` is the TI package route. `--no-build` leaves the generated native project available for inspection. Run `doctor numworks` before a NumWorks native build.
 
 ## Project data commands
@@ -44,6 +46,6 @@ Use `check` for syntax/semantic diagnostics, `lint` for guidance, `emit-mir` and
 
 ## Application profiles (work in progress)
 
-The application/UI branch adds `--profile cli|ui|game2d|embedded|wasm` to `project-check` and `project-build`, alongside explicit `capabilities` in `kalcite.toml`. This contract work is not yet part of every released CLI build. It validates requests such as `window` and `keyboard` against the selected target before compilation.
+Kally adds `--profile cli|ui|game2d|embedded|wasm` to `project-check` and `project-build`, alongside explicit `capabilities` in `kalcite.toml`. It validates requests such as `window` and `keyboard` against the selected target before compilation.
 
 Add `--report` to either project command to print currently measurable project costs: scenes, assets, compiled-scene data, declared pool capacity, and the selected capability contract. Native artifact size and stack estimates are explicitly labeled unavailable until the linker-analysis path exists. Read the [manifest reference](./manifest/) before selecting a profile.

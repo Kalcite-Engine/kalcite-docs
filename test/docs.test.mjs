@@ -28,6 +28,7 @@ test('Kally user references exist and state delivery status', async () => {
     'platforms.md',
     'build-reports.md',
     'testing.md',
+    'lint.md',
   ];
 
   for (const page of pages) {
@@ -36,6 +37,17 @@ test('Kally user references exist and state delivery status', async () => {
     const content = await readFile(url, 'utf8');
     assert.match(content, /Current|Work in progress|Planned/);
   }
+});
+
+test('lint reference exposes actual Kally diagnostics and visual evidence', async () => {
+  const page = await readFile(
+    new URL('../src/content/docs/reference/lint.md', import.meta.url),
+    'utf8',
+  );
+  assert.match(page, /KLC1001/);
+  assert.match(page, /KLC3002/);
+  assert.match(page, /lint-native-escape\.svg/);
+  assert.match(page, /kalcite-engine\.github\.io/);
 });
 
 test('Kally tutorials are present and do not overstate UI delivery', async () => {

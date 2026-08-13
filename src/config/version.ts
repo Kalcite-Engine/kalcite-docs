@@ -23,7 +23,7 @@ export const documentationVersions = [
     version: 'next',
     label: 'Development snapshot',
     status: 'Unreleased source',
-    href: 'https://github.com/kalcite-lang/kalcite/tree/main/kalcite-docs',
+    href: 'https://github.com/Kalcite-Engine/Kalcite/tree/main/kalcite-docs',
     current: false,
   },
 ] as const;

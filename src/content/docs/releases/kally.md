@@ -17,4 +17,4 @@ The invariants for this line are ahead-of-time compilation, no embedded Kalcite 
 
 Patch updates correct defects and documentation without intentionally changing accepted KLC syntax, manifest meaning, or `.kco` compatibility. A breaking change requires a migration note and a new release-line decision.
 
-The root [versioning policy](https://github.com/kalcite-lang/kalcite/blob/main/docs/VERSIONING.md) defines how a release branch/tag freezes this manual. For reproducible reports, include both the Kally version and the exact release tag or commit.
+The root [versioning policy](https://github.com/Kalcite-Engine/Kalcite/blob/main/docs/VERSIONING.md) defines how a release branch/tag freezes this manual. For reproducible reports, include both the Kally version and the exact release tag or commit.
