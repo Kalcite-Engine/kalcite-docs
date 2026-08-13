@@ -20,3 +20,7 @@ kalcite build FILE.klc [-o FILE.kco] [--target portable|numworks|desktop|ti|web]
 ```
 
 Run the command without arguments to see the authoritative usage from your checked-out version. Some listed target names are recognized by parsing while their native backend may still be unavailable; follow command diagnostics.
+
+## Application profiles (work in progress)
+
+The application/UI branch adds `--profile cli|ui|game2d|embedded|wasm` to `project-check` and `project-build`, alongside explicit `capabilities` in `kalcite.toml`. This contract work is not yet part of every released CLI build. It validates requests such as `window` and `keyboard` against the selected target before compilation.

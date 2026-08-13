@@ -15,6 +15,7 @@ export default defineConfig({
           items: [
             { label: 'What is Kalcite?', link: '/intro/' },
             { label: 'Architecture overview', link: '/architecture/' },
+            { label: 'Applications and UI roadmap', link: '/roadmap/applications-and-ui/' },
           ],
         },
         { label: 'Getting started', autogenerate: { directory: 'getting-started' } },
