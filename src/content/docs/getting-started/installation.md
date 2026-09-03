@@ -22,10 +22,12 @@ irm https://raw.githubusercontent.com/Kalcite-Engine/kallyup/main/scripts/kallyu
 ```
 
 The Linux launcher supports APT, DNF, Pacman, and Zypper. It may ask for your
-password while installing system packages. On macOS, complete Apple's Command
-Line Tools dialog once if it appears, then run the command again. On Windows,
-the launcher uses Winget, Chocolatey, or Scoop to install Git and downloads
-Rustup when Cargo is not present.
+password while installing system packages. On NixOS, it uses `nix profile
+install` to place Git, Curl, Cargo, Rust and the C toolchain in the user's Nix
+profile; it does not use Rustup or mutate the system. On macOS, complete
+Apple's Command Line Tools dialog once if it appears, then run the command
+again. On Windows, the launcher uses Winget, Chocolatey, or Scoop to install
+Git and downloads Rustup when Cargo is not present.
 
 Kallyup does not alter your `PATH`. Add its Cargo binary directory to `PATH`
 after installation if your shell cannot find `kalcite`, `kally`, or an optional
