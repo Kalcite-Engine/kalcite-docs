@@ -12,6 +12,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 - Static scenes already provide GUI nodes, containers, keyboard focus, and typed static button signals.
 - The desktop runner is a native development window, currently presenting a fixed 320×240 RGB565 logical surface.
 - `kalcite-platform-api` provides a fixed-capacity native surface ABI with generation-checked handles, resize-aware GPU targets, and embedded game views inside an application surface.
+- `kalcite-renderer` detaches each sorted command queue into an immutable frame bound to one GPU-target generation, so a resize cannot present a stale frame and rendering can be pipelined with recording.
 
 ## Work in progress
 
