@@ -32,6 +32,21 @@ after installation if your shell cannot find `kalcite`, `kally`, or an optional
 tool. Use `--root DIR` after the profile to choose a different installation
 directory.
 
+## Nix installation in a custom directory
+
+With Nix already installed, Kallyup can keep each selected repository flake in
+a directory you choose and install the tools to a profile beside them:
+
+```sh
+kallyup install full --nix --flakes "$HOME/.local/share/kalcite-flakes"
+```
+
+The first run clones the selected flakes into `DIR`; the installed profile is
+`DIR/profile`. Kallyup asks whether it should refresh flake inputs with `nix
+flake update` before installing. Choose no to preserve the locked inputs, or
+use `--refresh-flakes` and `--no-refresh-flakes` for unattended installation.
+Add `DIR/profile/bin` to `PATH` to make the installed commands available.
+
 ## Build from source
 
 The workspace declares Rust 1.85 and edition 2024. Clone the authoritative
