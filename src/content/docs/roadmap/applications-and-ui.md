@@ -11,6 +11,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 - NumWorks uses a bounded `no_std` runtime.
 - Static scenes already provide GUI nodes, containers, keyboard focus, and typed static button signals.
 - The desktop runner is a native development window, currently presenting a fixed 320×240 RGB565 logical surface.
+- `kalcite-platform-api` provides a fixed-capacity native surface ABI with generation-checked handles, resize-aware GPU targets, and embedded game views inside an application surface.
 
 ## Work in progress
 
@@ -18,11 +19,11 @@ Project profiles (`cli`, `ui`, `game2d`, `embedded`, and `wasm`) and explicit ta
 
 The `ui` profile establishes `window` and `keyboard` as its baseline. Other services remain opt-in manifest requirements, so a feature such as a native file dialog cannot become an accidental dependency. The work-in-progress CLI reports the effective capability contract in project checks and builds, including scene, asset, and declared-pool measurements through `--report`.
 
-The current desktop runner only claims `window` and `keyboard`; constrained targets claim `keyboard`. Rich desktop services such as pointer input, clipboard, native dialogs, GPU rendering, and accessibility are not yet available capabilities.
+The current desktop runner only claims `window` and `keyboard`; constrained targets claim `keyboard`. Rich desktop services such as pointer input, clipboard, native dialogs, GPU rendering, and accessibility are not yet available capabilities. The lower-level surface ABI lets future adapters validate a native view and GPU target without claiming those services exist today.
 
 ## Planned UI work
 
-The scene system will grow adaptive layout, text assets and metrics, pointer/touch input, node invalidation, accessibility metadata, typed bindings, themes, bounded virtual lists, and optional native platform adapters. These are planned rather than stable public APIs.
+The scene system will grow adaptive layout, text assets and metrics, pointer/touch input, node invalidation, accessibility metadata, typed bindings, themes, bounded virtual lists, and optional native platform adapters. SwiftUI, GTK4, Qt6, WinUI3, and Kotlin Compose adapters can implement the shared surface ABI while retaining ownership of their native handles and event loops. Those bindings are planned rather than stable public APIs.
 
 The design remains scene-first: UI is not a second framework. Controls, assets, rendering, input, diagnostics, and build budgets are shared with the engine.
 
