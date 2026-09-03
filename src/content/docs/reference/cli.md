@@ -14,7 +14,7 @@ kalcite build-nwa FILE.klc [-o GAME.nwa] [--name NAME] [--no-build] [--install]
 kalcite build-ti FILE.klc [-o GAME.8xp] [--name NAME] [--no-build]
 kalcite doctor numworks
 kalcite libs | scene-check FILE.kscn | asset-png FILE.png [-o FILE.ksp]
-kally add|update|remove|sync|lock
+kally add|update|remove|sync|status|lock
 kalcite test [DIR] | run FILE.klc | check FILE.klc | lint FILE.klc
 kalcite emit-mir FILE.klc | emit-rust FILE.klc
 kalcite build FILE.klc [-o FILE.kco] [--target portable|numworks|desktop|ti|web]
@@ -42,7 +42,7 @@ The [language lint reference](./lint/) lists all Kally diagnostic codes, their s
 
 ## Project data commands
 
-`scene-check` validates one `.kscn` scene. `asset-png` converts a PNG to a `.ksp` asset. Kally manages Git package metadata and writes `kally.lock`; `libs` shows known bundled libraries.
+`scene-check` validates one `.kscn` scene. `asset-png` converts a PNG to a `.ksp` asset. Kally manages Git package metadata and writes `kally.lock`; `kally status` audits the manifest, immutable lock, and `.kally/packages` cache without mutating the project. `libs` shows known bundled libraries.
 
 ## Application profiles (work in progress)
 
