@@ -16,6 +16,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 - The no-window reference host validates that frame at the presentation boundary; native toolkit adapters can adopt this lifecycle without sharing engine or toolkit object ownership.
 - Destroying an application surface invalidates its embedded game targets, preventing an orphaned view from presenting a previously recorded frame.
 - The surface ABI also provides allocation-free parent-coordinate hit testing for embedded game views, so native adapters can route pointer or touch input without transferring toolkit event ownership to the renderer.
+- Pointer routing normalizes a hit-tested application coordinate into the game’s logical pixels while preserving its phase and button. A miss remains an application UI event, so native controls and an embedded game can share one surface.
 
 ## Work in progress
 
