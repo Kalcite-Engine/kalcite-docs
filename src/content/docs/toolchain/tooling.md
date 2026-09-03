@@ -6,7 +6,9 @@ Kalcite provides clients for VS Code and Zed, backed by `kalcite-lsp`. Install
 the Kallyup `developer` or `full` profile so `kalcite-lsp` is available on
 `PATH`. The server provides diagnostics, completions, hover, go-to-definition,
 references, safe project-wide rename, document symbols, and workspace symbol
-search for `.klc` projects.
+search for `.klc` projects. It also supplies lexer-backed semantic tokens for
+keywords, types, functions, variables, numbers, and strings; positions follow
+the LSP UTF-16 convention, including in documents containing non-ASCII text.
 
 ![Kalcite VS Code extension preview based on the extension's syntax grammar and snippets.](https://kalcite-engine.github.io/kalcite-website/media/vscode-kalcite-preview.svg)
 
