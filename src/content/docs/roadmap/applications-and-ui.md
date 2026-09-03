@@ -14,6 +14,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 - `kalcite-platform-api` provides a fixed-capacity native surface ABI with generation-checked handles, resize-aware GPU targets, and embedded game views inside an application surface.
 - `kalcite-renderer` detaches each sorted command queue into an immutable frame bound to one GPU-target generation, so a resize cannot present a stale frame and rendering can be pipelined with recording.
 - The no-window reference host validates that frame at the presentation boundary; native toolkit adapters can adopt this lifecycle without sharing engine or toolkit object ownership.
+- Destroying an application surface invalidates its embedded game targets, preventing an orphaned view from presenting a previously recorded frame.
 
 ## Work in progress
 
