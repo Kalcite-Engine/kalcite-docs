@@ -17,6 +17,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 - Destroying an application surface invalidates its embedded game targets, preventing an orphaned view from presenting a previously recorded frame.
 - The surface ABI also provides allocation-free parent-coordinate hit testing for embedded game views, so native adapters can route pointer or touch input without transferring toolkit event ownership to the renderer.
 - Pointer routing normalizes a hit-tested application coordinate into the game’s logical pixels while preserving its phase and button. A miss remains an application UI event, so native controls and an embedded game can share one surface.
+- Keyboard routing accepts an adapter-selected focused embedded game, verifies its direct parent/child relationship, and carries an opaque key code, phase, and modifiers. Focus policy remains with SwiftUI, GTK, Qt, WinUI, or Kotlin rather than the renderer.
 
 ## Work in progress
 
