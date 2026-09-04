@@ -42,7 +42,7 @@ The [language lint reference](./lint/) lists all Kally diagnostic codes, their s
 
 ## Project data commands
 
-`scene-check` validates one `.kscn` scene. `asset-png` converts a PNG to a `.ksp` asset. Kally manages Git package metadata and writes `kally.lock`; `kally status` audits the manifest, immutable lock, and `.kally/packages` cache without mutating the project. In CI, `kally sync --locked` materializes only the exact checksummed lockfile state: it rejects a manifest/lock divergence and never resolves a branch or rewrites the lockfile. When the cache is already populated, `kally sync --locked --offline` verifies that exact state without filesystem writes or any Git access. `libs` shows known bundled libraries.
+`scene-check` validates one `.kscn` scene. `asset-png` converts a PNG to a `.ksp` asset. Kally manages Git package metadata and writes `kally.lock`; `kally status` audits the manifest, immutable lock, and `.kally/packages` cache without mutating the project. `kally clean --dry-run` previews stale named cache entries, while `kally clean` removes only those absent from `kally.lock`; it never removes a locked package. In CI, `kally sync --locked` materializes only the exact checksummed lockfile state: it rejects a manifest/lock divergence and never resolves a branch or rewrites the lockfile. When the cache is already populated, `kally sync --locked --offline` verifies that exact state without filesystem writes or any Git access. `libs` shows known bundled libraries.
 
 ## Application profiles (work in progress)
 
