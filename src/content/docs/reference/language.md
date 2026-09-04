@@ -6,7 +6,7 @@ title: Language reference
 
 The specification documents primitive types including `bool`, integer types, `usize`, `isize`, optional `f32`, fixed-point `fx8`/`fx16`, `angle8`, and `Color565`. Narrowing conversions are explicit with `as`.
 
-Declarations include fields, constants, classes, structs, methods, fixed arrays, attributes, visibility, modules and imports. The HIR parser supports calls, member access, numeric and boolean expressions, arrays, unary/binary operators, assignment, `if`/`else`, `while`, `break`, `defer`, and `return`.
+Declarations include fields, constants, classes, structs, methods, fixed arrays, attributes, visibility, modules and imports. The HIR parser supports calls, member access, numeric and boolean expressions, arrays, unary/binary operators, assignment, `if`/`else`, `while`, `break`, `continue`, `defer`, and `return`.
 
 ## Deterministic cleanup with `defer`
 
@@ -34,6 +34,24 @@ while true {
         defer ReleaseProbe();
         break; // ReleaseProbe(), then CloseAttempt()
     }
+}
+```
+
+## Iteration control with `continue`
+
+`continue;` is valid only within a `while` body and starts the next iteration
+of the innermost loop. As with `break`, Kalcite evaluates deferred expressions
+from the loop body and every nested block being exited, in LIFO order. Defers
+registered outside the loop stay active.
+
+```text
+while HasWork() {
+    defer FinishAttempt();
+    if ShouldRetry() {
+        defer ResetProbe();
+        continue; // ResetProbe(), then FinishAttempt()
+    }
+    ProcessWork();
 }
 ```
 
