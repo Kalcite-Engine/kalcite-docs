@@ -25,6 +25,7 @@ separately through the Zed extensions repository.
 
 The native [Kalcite Editor](https://github.com/Kalcite-Engine/kalcite-editor)
 currently hosts its window and eframe integration in Rust. Its viewport grid
-snap policy is already compiled from KLC during the Cargo build, which is the
-first executable migration boundary toward a KLC-led editor. This is **Work in
-progress**, not a claim that most of the editor is written in KLC yet.
+snap and collision-radius policies are already compiled from KLC during the
+Cargo build, which is the first executable migration boundary toward a KLC-led
+editor. This is **Work in progress**, not a claim that most of the editor is
+written in KLC yet.
