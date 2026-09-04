@@ -22,3 +22,9 @@ pins the published [Kalcite Tree-sitter grammar](https://github.com/Kalcite-Engi
 resolves `kalcite-lsp` from the active worktree. Clone it, then use **zed:
 install dev extension** to install it locally. Registry publication is tracked
 separately through the Zed extensions repository.
+
+The native [Kalcite Editor](https://github.com/Kalcite-Engine/kalcite-editor)
+currently hosts its window and eframe integration in Rust. Its viewport grid
+snap policy is already compiled from KLC during the Cargo build, which is the
+first executable migration boundary toward a KLC-led editor. This is **Work in
+progress**, not a claim that most of the editor is written in KLC yet.
