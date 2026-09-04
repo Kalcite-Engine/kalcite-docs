@@ -7,8 +7,11 @@ the Kallyup `developer` or `full` profile so `kalcite-lsp` is available on
 `PATH`. The server provides diagnostics, completions, hover, go-to-definition,
 references, safe project-wide rename, document symbols, and workspace symbol
 search for `.klc` projects. It also supplies lexer-backed semantic tokens for
-keywords, types, functions, variables, numbers, and strings; positions follow
-the LSP UTF-16 convention, including in documents containing non-ASCII text.
+keywords (including `defer`), types, functions, variables, numbers, and
+strings; positions follow the LSP UTF-16 convention, including in documents
+containing non-ASCII text. Completion includes language snippets for `defer`,
+`return`, `if`, and `while`; hovering `defer` explains its deterministic
+scope-exit behavior.
 
 ![Kalcite VS Code extension preview based on the extension's syntax grammar and snippets.](https://kalcite-engine.github.io/kalcite-website/media/vscode-kalcite-preview.svg)
 
@@ -25,7 +28,7 @@ separately through the Zed extensions repository.
 
 The native [Kalcite Editor](https://github.com/Kalcite-Engine/kalcite-editor)
 currently hosts its window and eframe integration in Rust. Its viewport grid
-snap and collision-radius policies are already compiled from KLC during the
-Cargo build, which is the first executable migration boundary toward a KLC-led
-editor. This is **Work in progress**, not a claim that most of the editor is
-written in KLC yet.
+snap, grid-density, and collision-radius policies are already compiled from
+KLC during the Cargo build, which is an executable migration boundary toward a
+KLC-led editor. This is **Work in progress**, not a claim that most of the
+editor is written in KLC yet.
