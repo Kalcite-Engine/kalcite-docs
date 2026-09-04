@@ -26,6 +26,10 @@ resolves `kalcite-lsp` from the active worktree. Clone it, then use **zed:
 install dev extension** to install it locally. Registry publication is tracked
 separately through the Zed extensions repository.
 
+The shared Tree-sitter grammar parses the current control-flow surface
+(`defer`, `if`/`else`, `while`, member calls, binary expressions, and compound
+assignments), so structural highlighting does not depend solely on the LSP.
+
 The native [Kalcite Editor](https://github.com/Kalcite-Engine/kalcite-editor)
 currently hosts its window and eframe integration in Rust. Its viewport grid
 snap, grid-density, and collision-radius policies are already compiled from
