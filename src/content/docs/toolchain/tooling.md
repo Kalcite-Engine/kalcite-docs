@@ -7,11 +7,11 @@ the Kallyup `developer` or `full` profile so `kalcite-lsp` is available on
 `PATH`. The server provides diagnostics, completions, hover, go-to-definition,
 references, safe project-wide rename, document symbols, and workspace symbol
 search for `.klc` projects. It also supplies lexer-backed semantic tokens for
-keywords (including `defer`), types, functions, variables, numbers, and
+keywords (including `defer` and `break`), types, functions, variables, numbers, and
 strings; positions follow the LSP UTF-16 convention, including in documents
 containing non-ASCII text. Completion includes language snippets for `defer`,
-`return`, `if`, and `while`; hovering `defer` explains its deterministic
-scope-exit behavior.
+`break`, `return`, `if`, and `while`; hovering `defer` explains its deterministic
+scope-exit behavior and hovering `break` explains its loop-local cleanup.
 
 ![Kalcite VS Code extension preview based on the extension's syntax grammar and snippets.](https://kalcite-engine.github.io/kalcite-website/media/vscode-kalcite-preview.svg)
 
@@ -27,7 +27,7 @@ install dev extension** to install it locally. Registry publication is tracked
 separately through the Zed extensions repository.
 
 The shared Tree-sitter grammar parses the current control-flow surface
-(`defer`, `if`/`else`, `while`, member calls, binary expressions, and compound
+(`defer`, `break`, `if`/`else`, `while`, member calls, binary expressions, and compound
 assignments), so structural highlighting does not depend solely on the LSP.
 
 The native [Kalcite Editor](https://github.com/Kalcite-Engine/kalcite-editor)
