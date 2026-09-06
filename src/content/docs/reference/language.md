@@ -8,6 +8,8 @@ The specification documents primitive types including `bool`, integer types, `us
 
 Declarations include fields, constants, classes, structs, methods, fixed arrays, attributes, visibility, modules and imports. The HIR parser supports calls, member access, numeric and boolean expressions, fixed-array literals and indexing, unary/binary operators, assignment, `if`/`else`, `while`, fixed-array `for item in items` loops, `break`, `continue`, `defer`, and `return`. Array indexes must be numeric and only fixed arrays can be indexed; `for` likewise accepts only a fixed array and its binding is local to its body.
 
+Bounded strings have a portable byte API: `Text.length(value)` returns `u32`, `Text.byte_at(value, index)` returns `u8`, and `Text.byte_at_u32(value, index)` returns `u32`. The compiler typechecks these intrinsics, allowing allocation-free text validation and hashing in ordinary KLC packages.
+
 ## Deterministic cleanup with `defer`
 
 `defer expression;` schedules an expression for the end of its current lexical scope. Deferred expressions run in last-in, first-out order, including when the scope is left through `return`. The return value is evaluated before the cleanup expressions run. This lowering is direct Rust code generation: it does not allocate a closure, start a VM, or introduce a garbage collector.
