@@ -27,6 +27,10 @@ resolves `kalcite-lsp` from the active worktree. Clone it, then use **zed:
 install dev extension** to install it locally. Registry publication is tracked
 separately through the Zed extensions repository.
 
+Both clients are backed by the same server and understand fixed-array loops:
+the LSP completes and semantically highlights `for item in items { ... }`, VS
+Code provides the `kl-for` snippet, and Zed highlights both `for` and `in`.
+
 The shared Tree-sitter grammar parses the current control-flow surface
 (`defer`, `break`, `continue`, `if`/`else`, `while`, member calls, binary expressions, and compound
 assignments), so structural highlighting does not depend solely on the LSP.
