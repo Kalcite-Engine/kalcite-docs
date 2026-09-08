@@ -9,7 +9,9 @@ references, safe project-wide rename, document symbols, and workspace symbol
 search for `.klc` projects. It also supplies lexer-backed semantic tokens for
 keywords (including `defer`, `break`, and `continue`), types, functions, variables, numbers, and
 strings; positions follow the LSP UTF-16 convention, including in documents
-containing non-ASCII text. Completion includes language snippets for `defer`,
+containing non-ASCII text. Clients send ordered incremental edits rather than
+the full document on every change; malformed UTF-16 ranges are rejected before
+they can corrupt the in-memory source. Completion includes language snippets for `defer`,
 `break`, `continue`, `return`, `if`, and `while`; hovering `defer` explains its
 deterministic scope-exit behavior, while `break` and `continue` explain their
 loop-local cleanup.
@@ -37,7 +39,7 @@ assignments), so structural highlighting does not depend solely on the LSP.
 
 The native [Kalcite Editor](https://github.com/Kalcite-Engine/kalcite-editor)
 currently hosts its window and eframe integration in Rust. Its viewport grid
-snap, grid-density, and collision-radius policies are already compiled from
-KLC during the Cargo build, which is an executable migration boundary toward a
-KLC-led editor. This is **Work in progress**, not a claim that most of the
-editor is written in KLC yet.
+snap, grid-density, collision-radius, profiling, and budget policies are
+already compiled from KLC during the Cargo build. This is an executable
+migration boundary toward a KLC-led editor, not a claim that most of the editor
+is written in KLC yet.
