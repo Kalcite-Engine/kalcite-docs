@@ -13,6 +13,7 @@ Kalcite is evolving into a compiled native environment for command-line tools, s
 - The desktop runner is a native development window, currently presenting a fixed 320×240 RGB565 logical surface.
 - `kalcite-platform-api` provides a fixed-capacity native surface ABI with generation-checked handles, resize-aware GPU targets, and embedded game views inside an application surface.
 - `kalcite-renderer` detaches each sorted command queue into an immutable frame bound to one GPU-target generation, so a resize cannot present a stale frame and rendering can be pipelined with recording. Native GPU adapters implement its small `RenderFrameEncoder` contract to replay the sorted commands without giving the renderer a device or toolkit dependency.
+- Each immutable frame carries a byte-precise RGBA clear colour, delivered to the encoder with its generation-checked target and camera. This lets native render passes begin without hidden backend background policy.
 - The no-window reference host validates that frame at the presentation boundary; native toolkit adapters can adopt this lifecycle without sharing engine or toolkit object ownership.
 - Its validate → encode → present helper records a presentation only after encoding succeeds, so stale targets and adapter errors cannot produce false presentation state.
 - Destroying an application surface invalidates its embedded game targets, preventing an orphaned view from presenting a previously recorded frame.
