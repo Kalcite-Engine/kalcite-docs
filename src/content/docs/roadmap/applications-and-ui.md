@@ -28,7 +28,7 @@ Project profiles (`cli`, `ui`, `game2d`, `embedded`, and `wasm`) and explicit ta
 
 The `ui` profile establishes `window` and `keyboard` as its baseline. Other services remain opt-in manifest requirements, so a feature such as a native file dialog cannot become an accidental dependency. The work-in-progress CLI reports the effective capability contract in project checks and builds, including scene, asset, and declared-pool measurements through `--report`.
 
-The current desktop runner only claims `window` and `keyboard`; constrained targets claim `keyboard`. Rich desktop services such as pointer input, clipboard, native dialogs, GPU rendering, and accessibility are not yet available capabilities. The lower-level surface ABI lets future adapters validate a native view and GPU target without claiming those services exist today.
+The current desktop runner only claims `window` and `keyboard`; constrained targets claim `keyboard`. Rich desktop services such as pointer input, clipboard, native dialogs, GPU rendering, and accessibility are not yet available capabilities. The lower-level surface ABI lets future adapters validate a native view and GPU target without claiming those services exist today. Its embedded-view routing already preserves press, move, release, and explicit cancellation semantics under bounded pointer capture, so adapters can discard cancelled drags consistently.
 
 ## Planned UI work
 
